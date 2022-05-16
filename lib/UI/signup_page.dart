@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:master_project/UI/signup_page.dart';
 import '../myBloc/auth_cubit.dart';
 import 'welcome.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignupPage extends StatefulWidget {
+  const SignupPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -21,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text("This is sign up page"),
         leading: const Icon(Icons.menu),
         actions: const [
           Padding(
@@ -30,6 +30,8 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
       body: SingleChildScrollView(
+          child: Form(
+        key: formKey,
         child: Column(
           children: [
             Padding(
@@ -60,56 +62,37 @@ class _LoginPageState extends State<LoginPage> {
                   RequiredValidator(errorText: 'password is required'),
                 ]),
                 decoration: const InputDecoration(
-                    hintText: "enter your password",
+                    hintText: "enter your New password",
                     border: OutlineInputBorder(),
-                    labelText: 'Password'),
+                    labelText: 'New Password'),
               ),
             ),
             MaterialButton(
-              child: const Text('Login'),
               textColor: Colors.white,
               splashColor: const Color.fromARGB(255, 103, 91, 95),
               color: const Color.fromARGB(191, 5, 4, 23),
               onPressed: () {
                 final formState = formKey.currentState;
+
                 if (formState == null) {
+                  print("formstate is  null");
                   return;
                 }
 
                 bool isValid = formState.validate();
                 if (isValid) {
-                  BlocProvider.of<AuthCubit>(context).loginWithEmail(
+                  BlocProvider.of<AuthCubit>(context).signupWithEmail(
                       email: emailController.text,
                       password: passwordController.text);
                 }
-               
               },
+              child: const Text('sign up'),
             ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: MaterialButton(
-                      onPressed: () {}, child: const Text('Login with Google')),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: MaterialButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignupPage()));
-                      },
-                      child: Text('sign up')),
-                ),
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            )
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),
-      ),
+        // ),
+      )),
     );
   }
 }
