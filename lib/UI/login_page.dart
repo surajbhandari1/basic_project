@@ -30,84 +30,96 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(50, 100, 50, 50),
-              child: Image.network(
-                  'https://img.icons8.com/external-bearicons-gradient-bearicons/64/000000/external-login-call-to-action-bearicons-gradient-bearicons-1.png'),
-            ),
-            const SizedBox(height: 100),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                validator:
-                    EmailValidator(errorText: 'enter a valid email address'),
-                decoration: const InputDecoration(
-                    hintText: "enter your email",
-                    border: OutlineInputBorder(),
-                    labelText: 'Username'),
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(50, 100, 50, 50),
+                child: Image.network(
+                    'https://img.icons8.com/external-bearicons-gradient-bearicons/64/000000/external-login-call-to-action-bearicons-gradient-bearicons-1.png'),
               ),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: passwordController,
-                validator: MultiValidator([
-                  RequiredValidator(errorText: 'password is required'),
-                ]),
-                decoration: const InputDecoration(
-                    hintText: "enter your password",
-                    border: OutlineInputBorder(),
-                    labelText: 'Password'),
-              ),
-            ),
-            MaterialButton(
-              child: const Text('Login'),
-              textColor: Colors.white,
-              splashColor: const Color.fromARGB(255, 103, 91, 95),
-              color: const Color.fromARGB(191, 5, 4, 23),
-              onPressed: () {
-                final formState = formKey.currentState;
-                if (formState == null) {
-                  return;
-                }
+              const SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
 
-                bool isValid = formState.validate();
-                if (isValid) {
-                  BlocProvider.of<AuthCubit>(context).loginWithEmail(
-                      email: emailController.text,
-                      password: passwordController.text);
-                }
-               
-              },
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: MaterialButton(
-                      onPressed: () {}, child: const Text('Login with Google')),
+                //Input Field for email address
+                child: TextFormField(
+                  controller: emailController,
+                  validator: MultiValidator([
+                    RequiredValidator(errorText: 'Email is required'),
+                    EmailValidator(errorText: 'Enter a valid email address'),
+                  ]),
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter your email'),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: MaterialButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignupPage()));
-                      },
-                      child: Text('sign up')),
+              ),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+
+                //Input Field for password
+                child: TextFormField(
+                  obscureText: true,
+                  controller: passwordController,
+                  validator: MultiValidator([
+                    RequiredValidator(errorText: 'Password is required'),
+                  ]),
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter your password'),
                 ),
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            )
-          ],
-          mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              MaterialButton(
+                child: const Text('Login'),
+                textColor: Colors.white,
+                splashColor: const Color.fromARGB(255, 103, 91, 95),
+                color: const Color.fromARGB(191, 5, 4, 23),
+                onPressed: () {
+                  final formState = formKey.currentState;
+                  if (formState == null) {
+                    return;
+                  }
+
+                  bool isValid = formState.validate();
+                  if (isValid) {
+                    BlocProvider.of<AuthCubit>(context).loginWithEmail(
+                        email: emailController.text,
+                        password: passwordController.text);
+                  }
+
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //           builder: ((context) => const WelcomePage())));
+                },
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: MaterialButton(
+                        onPressed: () {},
+                        child: const Text('Login with Google')),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(30.0),
+                    child: MaterialButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignupPage()));
+                        },
+                        child: Text('sign up')),
+                  ),
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              )
+            ],
+            mainAxisAlignment: MainAxisAlignment.center,
+          ),
         ),
       ),
     );

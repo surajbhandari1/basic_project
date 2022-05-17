@@ -42,29 +42,32 @@ class _SignupPageState extends State<SignupPage> {
             const SizedBox(height: 100),
             Padding(
               padding: const EdgeInsets.all(8.0),
+
+              //Input field for email address
               child: TextFormField(
                 controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                validator:
-                    EmailValidator(errorText: 'enter a valid email address'),
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Email is required'),
+                  EmailValidator(errorText: 'Enter a valid email address'),
+                ]),
                 decoration: const InputDecoration(
-                    hintText: "enter your email",
                     border: OutlineInputBorder(),
-                    labelText: 'Username'),
+                    labelText: 'Enter your new email'),
               ),
             ),
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),
+
+              //Input field for password
               child: TextFormField(
                 controller: passwordController,
                 validator: MultiValidator([
-                  RequiredValidator(errorText: 'password is required'),
+                  RequiredValidator(errorText: 'Password is required'),
                 ]),
                 decoration: const InputDecoration(
-                    hintText: "enter your New password",
                     border: OutlineInputBorder(),
-                    labelText: 'New Password'),
+                    labelText: 'Enter your new password'),
               ),
             ),
             MaterialButton(
@@ -75,7 +78,6 @@ class _SignupPageState extends State<SignupPage> {
                 final formState = formKey.currentState;
 
                 if (formState == null) {
-                  print("formstate is  null");
                   return;
                 }
 
