@@ -1,8 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -12,10 +9,9 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       final userCred = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      emit(AuthSuccessState());
     } on FirebaseAuthException catch (e) {
-      print(e.toString());
-    } catch (e) {
-      print(e);
+      emit(AuthErrorState(errorMessage: e.toString()));
     }
   }
 
@@ -23,11 +19,8 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       final userCred = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      print(userCred.user);
+      emit(AuthSignupSuccessState());
     } on FirebaseAuthException catch (e) {
-      print(e.toString());
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 }
