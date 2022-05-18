@@ -93,7 +93,7 @@ class _SignupPageState extends State<SignupPage> {
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),
-        // ),
+        // )
       )),
     );
   }

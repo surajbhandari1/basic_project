@@ -18,7 +18,7 @@ class LoginMe extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) =>  AuthCubit()),
+        BlocProvider(create: (_) => AuthCubit()),
       ],
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.blue),
