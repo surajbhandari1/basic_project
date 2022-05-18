@@ -38,6 +38,7 @@ dependencies:
   google_sign_in: 
   form_field_validator: 1.1.0
   flutter_bloc: ^8.0.1
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:
