@@ -8,8 +8,9 @@
 
 ## Features & Techniques Used:
 
-- State management technique : Bloc
-  -- State Management lifecycle completely used( Cubit -> State -> UI).
-- Auth : Firebase
-  -- Sign up and sign in with email using firebase.
-  -Shared Preferences used(New)
+#### State management technique : Bloc
+- State Management lifecycle completely used( Cubit -> State -> UI).
+#### Auth : Firebase
+- Sign up and sign in with email using firebase.
+#### Shared Preferences used(New)
+-Save True/False value if user is already Logged in or not.
