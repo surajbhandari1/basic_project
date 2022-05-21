@@ -14,6 +14,11 @@
 
 - Sign up and sign in with email using firebase.
 
-#### Shared Preferences used
+#### Shared Preferences 
 
 - Save True/False value if user is already Logged in or not.
+
+#### Splash Screen (new)
+- Splash Logo
+- On boarding screen
+- Loading and fetching during splash screen
