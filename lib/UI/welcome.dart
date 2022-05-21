@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../myBloc/auth_cubit.dart';
 import '../myBloc/auth_state.dart';
 import '../ui/login_page.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomePage extends StatefulWidget {
