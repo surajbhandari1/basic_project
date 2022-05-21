@@ -16,7 +16,7 @@
 
 #### Shared Preferences 
 
-- Save True/False value if user is already Logged in or not.
+- Save True/False value in local storage and find if user is already Logged in or not.
 
 #### Splash Screen (new)
 - Splash Logo
