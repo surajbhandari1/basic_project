@@ -98,6 +98,13 @@ class _LoginPageState extends State<LoginPage> {
                     //           builder: ((context) => const WelcomePage())));
                   },
                 ),
+MaterialButton(
+                    onPressed: () {
+                      BlocProvider.of<AuthCubit>(context).check();
+                    },
+                    child: const Text('check')),
+
+
                 Row(
                   children: [
                     Padding(
