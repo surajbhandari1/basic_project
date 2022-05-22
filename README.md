@@ -1,6 +1,6 @@
 # Master_project
 
-# Description
+## Description
 
 - This project is for self learning purpose. Newly learnt things will be updated daily.
 
@@ -13,7 +13,7 @@
 #### Auth : Firebase
 
 - Sign up and sign in with email using firebase.
-<<<<<<< HEAD
+  <<<<<<< HEAD
 
 #### Shared Preferences
 
@@ -21,15 +21,9 @@
 
 #### Splash Screen (new)
 
-- Splash Logo
+- Main app logo added
+- Splash Screen Logo added
 - On boarding screen
-- Loading and fetching during splash screen
-=======
-#### Shared Preferences used(New)
-
-- Save True/False value in local storage and find if user is already Logged in or not.
-
+- Loading and fetching during displaying splash screen
 
 # Screenshots
-
->>>>>>> level-2
