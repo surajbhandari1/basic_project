@@ -4,8 +4,6 @@ import 'features/SplashScreen/splash_screen.dart';
 import 'myBloc/auth_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'UI/login_page.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
