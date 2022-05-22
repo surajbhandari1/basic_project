@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'features/SplashScreen/splash_screen.dart';
 import 'myBloc/auth_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +23,7 @@ class LoginMe extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const LoginPage(),
+        home: const SplashScreen(),
       ),
     );
   }
