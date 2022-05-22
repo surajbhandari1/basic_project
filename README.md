@@ -1,6 +1,6 @@
 # Master_project
 
-# Description
+## Description
 
 - This project is for self learning purpose. Newly learnt things will be updated daily.
 
@@ -16,5 +16,7 @@
 - Save True/False value in local storage and find if user is already Logged in or not.
 
 
-# Screenshots
-
+## Screenshots
+<pre>
+<img src="https://github.com/surajbhandari1/master_project/blob/level-2/screenshots/1.png"  width="200" height="400">  <img src="https://github.com/surajbhandari1/master_project/blob/level-2/screenshots/2.png"  width="200" height="400">  <img src="https://github.com/surajbhandari1/master_project/blob/level-2/screenshots/3.png"  width="200" height="400">
+</pre>
