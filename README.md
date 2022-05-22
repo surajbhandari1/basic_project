@@ -13,6 +13,7 @@
 #### Auth : Firebase
 
 - Sign up and sign in with email using firebase.
+<<<<<<< HEAD
 
 #### Shared Preferences
 
@@ -23,3 +24,12 @@
 - Splash Logo
 - On boarding screen
 - Loading and fetching during splash screen
+=======
+#### Shared Preferences used(New)
+
+- Save True/False value in local storage and find if user is already Logged in or not.
+
+
+# Screenshots
+
+>>>>>>> level-2
