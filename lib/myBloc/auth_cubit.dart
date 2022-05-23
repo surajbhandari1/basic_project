@@ -9,10 +9,11 @@ class AuthCubit extends Cubit<AuthState> {
 
   loginWithEmail({required String email, required String password}) async {
     try {
-      emit(AuthSuccessState());
       final userCred = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      emit(AuthSuccessState());
 
+      
       SharedPref.setHasUserLoggedIn(true);
 
       final bool LoggedIn = await SharedPref.getHasUserLoggedIn();
