@@ -27,3 +27,7 @@
 - Loading and fetching during displaying splash screen
 
 # Screenshots
+
+
+## More about mobile application development with Flutter
+Visit: [App Development With Flutter](https://www.bhandari-suraj.com.np/)
